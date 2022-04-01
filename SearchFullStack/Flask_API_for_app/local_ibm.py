@@ -1,6 +1,7 @@
 from ibm_watson import NaturalLanguageUnderstandingV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions, SentimentOptions, CategoriesOptions, EmotionOptions
+from sql_insertions_main_data.fetchAnalysis.ibm_config import url_api, url_ibm
 import json
 from newspaper import Article
 
@@ -12,8 +13,8 @@ def get_text_from_url(url):
 
 def ibm_get_sentiment(url, keyword):
     print (keyword)
-    url_api = 'aEgAo9_wTdLPk1gklVeKHukDzkXp5gXote0yttpMPrC0'
-    url_ibm = 'https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/7fade06f-33fa-4aa6-8e0d-64acca721fa4'
+    url_api = url_api
+    url_ibm = url_ibm
 
     ibm_authenticator = IAMAuthenticator(url_api)
     natural_language_understanding = NaturalLanguageUnderstandingV1(

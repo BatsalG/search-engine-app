@@ -3,6 +3,8 @@ import os
 from sql_insertions_main_data.searchEngineFetch.gresults import get_google_results
 from sql_insertions_main_data.searchEngineFetch.bing import get_bing_results
 from sql_insertions_main_data.fetchAnalysis.ibm_data_sql_insertion import insert_ibm_sentiment
+from sql_insertions_main_data.azure_config import azure_svname, azure_id, azure_pwd
+
 from datetime import date, datetime
 from dateutil import parser
 from tqdm import tqdm
@@ -26,10 +28,10 @@ def insert_data_to_sql(results, cursor, engine, db):
         db.commit()
 
 def fetch_from_engine(keywords_from = 'from_sql', number_of_results = 10):
-    server = 'capstone-search.database.windows.net'
+    server = azure_svname
     database = 'search_analysis'
-    username = 'batsalg'
-    password = '{Mangoman123}'   
+    username = azure_id
+    password = azure_pwd   
     driver= '{SQL Server}'
 
     with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as db:

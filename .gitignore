@@ -1,3 +1,8 @@
 SearchDatabase/sql_insertions_main_data/fetchAnalysis/ibm_config.py
 SearchDatabase/sql_insertions_main_data/Twitter_Fetch/twitter_config.py
+SearchDatabase/sql_insertions_main_data/azure_config.py
+SearchDatabase/DigiCertGlobalRootG2.crt.pem
+SearchFullStack/sql_insertions_main_data/azure_config.py
+SearchFullStack/sql_insertions_main_data/fetchAnalysis/ibm_config.py
+SearchFullStack/sql_insertions_main_data/Twitter_Fetch/twitter_config.py
 SearchFullStack/client/node_modules
