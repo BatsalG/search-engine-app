@@ -1,0 +1,46 @@
+.keyword_name{
+    position: sticky;
+    top: 10px;
+    background-color: rgb(29, 29, 29);
+    margin: 10px;
+}
+
+.keyword_name:first-child{
+    font-size: 1.4em;
+    padding: 12px;
+    text-align: center;
+    font-weight: 700;
+    color: rgb(255, 67, 67);
+    border-radius: 25px;
+}
+
+.res_search{
+    font-size: 0.8em;
+    font-weight: 400;
+    color: white;
+}
+
+.back_button{
+    position: absolute;
+    cursor: pointer;
+    left: 10px;
+    border-radius: 25px;
+    padding-bottom: 3px;
+    padding-top: 0px;
+    padding-right: 13px;
+    padding-left: 13px;
+    background-color: rgb(255, 255, 255);
+    font-size: 0.9em;
+    color: rgb(255, 52, 52);
+    transition: 0.7s;
+    box-shadow: 0 4px 8px 0 rgba(36, 36, 36, 0.233), 0 0px 5px 0 rgba(255, 255, 255, 0.19);   
+}
+
+.back_button:hover{
+    background-color: rgb(250, 217, 217);
+}
+
+.back_button a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}

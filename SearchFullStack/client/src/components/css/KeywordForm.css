@@ -1,0 +1,91 @@
+.form_div{
+    border-radius: 20px;
+    margin: 20px;
+    margin-bottom: -20px;
+}
+
+.search_title_bar{
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: rgb(15, 65, 88);
+}
+
+
+.search_heading p{
+    background-color: rgb(46, 46, 46);
+    text-align: center;
+    padding: 5px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.form_form{
+    text-align: center;
+}
+
+.input_box{
+    width: 70%;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    border: rgb(0, 0, 0);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 2px 0 rgba(14, 14, 14, 0.19);
+}
+
+.keyword_{
+    font-size: 1.4em;
+    font-weight: 500;
+    color: rgb(248, 45, 45);
+    text-underline-offset: 3px;
+    
+}
+
+.search_label{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: rgb(156, 26, 26);
+}
+
+.search_for{
+    font-size: 1em;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+}
+
+.engine_{
+    font-size: 1.1em;
+    font-weight: 200;
+    color: white;
+}
+
+
+.engine_label{
+    padding: 0px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.select_box{
+    margin: 15px;
+    padding: 5px 50px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 1em;
+}
+
+.submit_button{
+    padding: 10px 50px;
+    border-radius: 25px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-color: red;
+}
+
+.submit_button:hover{
+    background-color: rgb(71, 71, 71);
+    cursor: pointer;
+}

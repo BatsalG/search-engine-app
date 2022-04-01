@@ -1,0 +1,106 @@
+.entities{
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(5, 2fr);
+    gap: 20px;
+    margin: 20px;
+}
+
+.entity{
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(218, 218, 218, 0.2), 0 0px 5px 0 rgba(14, 14, 14, 0.19);
+}
+
+.entity:nth-child(1){
+    grid-column: 2;
+}
+
+.entity:nth-child(4){
+    grid-column: 2;
+}
+
+.entity:nth-child(5){
+    grid-column: 3;
+}
+
+
+.type, .text, .sentiment, .relevance{
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.type{
+    background-color: rgb(241, 241, 241);
+    margin: 5px;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+.text{
+    margin: 5px;
+    background-color: rgb(254, 234, 255);
+}
+
+.sentiment{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5px;
+    background-color: rgb(224, 255, 233);
+}
+
+.relevance{
+    margin: 5px;
+}
+
+.sentiment_txt{
+    position: relative;
+    text-align: right;
+    background-color: rgb(218, 246, 255);
+    grid-column: 1;
+    padding: 10px 20px;
+    border-radius: 10px 0px 0px 10px;
+    margin: -5px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.sentiment_main{
+    position: relative;
+    grid-column: 2;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 10px 10px 0px;
+    margin: -5px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.relevance{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5px;
+    background-color: rgb(233, 243, 255);
+}
+
+.relevance_txt{
+    position: relative;
+    text-align: right;
+    background-color: rgb(218, 255, 224);
+    grid-column: 1;
+    padding: 10px 20px;
+    border-radius: 10px 0px 0px 10px;
+    margin: -5px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.relevance_main{
+    position: relative;
+    grid-column: 2;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 10px 10px 0px;
+    margin: -5px;
+    margin-left: 5px;
+    text-align: center;
+}

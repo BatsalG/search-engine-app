@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Capstone" id="Project-397" database="LogicalDesign" >
+	<schema name="Capstone" >
+		<table name="News" prior="Entity" spec="" >
+			<comment><![CDATA[Table for the information about the news.]]></comment>
+			<column name="news_id" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[Unique ID for the news article]]></comment>
+			</column>
+			<column name="keyword" type="varchar" length="100" jt="12" mandatory="y" >
+				<comment><![CDATA[The keyword under investigation]]></comment>
+			</column>
+			<column name="search_engine" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Name of the search_engine]]></comment>
+			</column>
+			<column name="published_date" type="date" jt="91" mandatory="y" />
+			<column name="news_title" type="varchar" length="1000" jt="12" mandatory="y" >
+				<comment><![CDATA[Title for the news article]]></comment>
+			</column>
+			<column name="news_url" type="varchar" length="2083" jt="12" mandatory="y" >
+				<comment><![CDATA[URL for the news article.]]></comment>
+			</column>
+			<column name="publisher_name" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Name of the publisher]]></comment>
+			</column>
+			<column name="publisher_description" type="text" jt="-1" >
+				<comment><![CDATA[Description of the article.]]></comment>
+			</column>
+			<index name="pk_News" unique="PRIMARY_KEY" >
+				<column name="news_id" />
+			</index>
+			<fk name="fk_News_TweetAnalysis" to_schema="Capstone" to_table="TweetAnalysis" type="OneToOne" >
+				<fk_column name="news_id" pk="id" />
+			</fk>
+		</table>
+		<table name="Tweet" prior="Entity" spec="" >
+			<comment><![CDATA[Description about the tweet, which is suffiicient to find the sentiment and other analytical factors for it.]]></comment>
+			<column name="tweet_id" prior="Tweet_ID" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[ID of the tweet as given by the API.]]></comment>
+			</column>
+			<column name="tweet_data" type="text" jt="-1" mandatory="y" >
+				<comment><![CDATA[Actual content of the tweet]]></comment>
+			</column>
+			<column name="created_at" type="datetime" jt="93" mandatory="y" >
+				<comment><![CDATA[Tiime when the tweet was created.]]></comment>
+			</column>
+			<column name="favorite_count" type="int" jt="4" mandatory="y" unsigned="y" >
+				<defo><![CDATA[0]]></defo>
+				<comment><![CDATA[Number of favorites in the tweet]]></comment>
+			</column>
+			<column name="retweet_count" type="int" jt="4" mandatory="y" unsigned="y" >
+				<defo><![CDATA[0]]></defo>
+				<comment><![CDATA[Number of retweets for the tweet]]></comment>
+			</column>
+			<column name="tweet_url" type="char" length="2048" jt="1" >
+				<comment><![CDATA[The expanded URL for the tweet.]]></comment>
+			</column>
+			<column name="keyword_query" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Keyword used for the query.]]></comment>
+			</column>
+			<index name="pk_Tweet" unique="PRIMARY_KEY" >
+				<column name="tweet_id" />
+			</index>
+			<fk name="fk_Tweet_TweetAnalysis" to_schema="Capstone" to_table="TweetAnalysis" type="Identifying" >
+				<fk_column name="tweet_id" pk="element_id" />
+			</fk>
+		</table>
+		<table name="TweetAnalysis" prior="Entity" spec="" >
+			<comment><![CDATA[The analysis for the tweets from IBM Watson.]]></comment>
+			<column name="element_id" prior="tweet_id" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[ID for the element to connect the tables.]]></comment>
+			</column>
+			<column name="id" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[Primary key (auto-increment)]]></comment>
+			</column>
+			<column name="total_chars" type="int" jt="4" mandatory="y" unsigned="y" >
+				<defo><![CDATA[0]]></defo>
+				<comment><![CDATA[Total number of characters in the element.]]></comment>
+			</column>
+			<column name="document_sentiment_num" type="numeric" length="0" decimal="5" jt="2" >
+				<defo><![CDATA[0]]></defo>
+				<comment><![CDATA[Sentiment of the Document in numeric value.]]></comment>
+			</column>
+			<column name="document_sentiment_label" type="varchar" length="12" jt="12" >
+				<comment><![CDATA[Label of the sentiment (Positive or negative)]]></comment>
+			</column>
+			<column name="sentiment_sadness" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Sentiment for sadness]]></comment>
+			</column>
+			<column name="sentiment_joy" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Sentiment for Joy]]></comment>
+			</column>
+			<column name="sentiment_fear" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Sentiment for Fear]]></comment>
+			</column>
+			<column name="sentiment_disgust" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Sentiment for Disgust]]></comment>
+			</column>
+			<column name="sentiment_anger" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Sentiment for Anger]]></comment>
+			</column>
+			<column name="keyword_n" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[One of 5 keywords to be stored.]]></comment>
+			</column>
+			<column name="keyword_n_sentiment" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Sentiment for n keywords]]></comment>
+			</column>
+			<column name="keyword_n_relevance" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Relevance for the n keyword.]]></comment>
+			</column>
+			<column name="entity_n_type" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Type of the n-th entity]]></comment>
+			</column>
+			<column name="entity_n_name" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Name of the n-th entity]]></comment>
+			</column>
+			<column name="entity_n_sentiment" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Sentiment for the n-th sentiment.]]></comment>
+			</column>
+			<column name="entity_n_relevance" type="numeric" length="0" decimal="5" jt="2" >
+				<comment><![CDATA[Relevance of the n-th entity.]]></comment>
+			</column>
+			<column name="keyword_query" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Keyword for the query.]]></comment>
+			</column>
+			<index name="pk_TweetAnalysis" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_TweetAnalysis_element_id" unique="UNIQUE_KEY" >
+				<column name="element_id" />
+			</index>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-645" show_relation="columns" >
+		<comment><![CDATA[Capstone]]></comment>
+		<entity schema="Capstone" name="News" color="C1D8EE" x="608" y="128" />
+		<entity schema="Capstone" name="Tweet" color="C1D8EE" x="48" y="144" />
+		<entity schema="Capstone" name="TweetAnalysis" color="C1D8EE" x="288" y="48" />
+	</layout>
+</project>
