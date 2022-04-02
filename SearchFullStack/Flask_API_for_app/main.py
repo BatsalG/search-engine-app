@@ -45,7 +45,6 @@ class PostFetchReq(Resource):
 class GetActiveSchedules(Resource):
     def get(self):
         res = get_active_schedules()
-        print (res)
         return jsonify(res)
     
     def post(self):
@@ -55,7 +54,7 @@ class GetActiveSchedules(Resource):
         flask_delete_job(sch, iid)
         return jsonify(
             {
-                'message': 'Process has started.'
+                'message': 'Schedule Deleted.'
             },
             201
         )
