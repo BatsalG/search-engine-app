@@ -42,7 +42,22 @@ Once this step is complete, it shold automatically take you to the link of the R
 
 ## Testing the App
 When you go to the `localhost:3000`, you should see the 'Fetch' Dashboard that looks something like this:
+
 ![image](https://raw.githubusercontent.com/BatsalG/search-engine-app/main/SearchFullStack/screenshots/Fetch_Dashboard.jpg)
+
+From the dashboard, you can add in the keywords, number of results and intervals and start the fetching process.
+
+![image](https://github.com/BatsalG/search-engine-app/blob/main/SearchFullStack/screenshots/fetch.jpg?raw=true)
+
+You can also persist the list of keywords to the database with a unique identifier, which makes searching for jobs easier.
+
+![image](https://github.com/BatsalG/search-engine-app/blob/main/SearchFullStack/screenshots/keyword_persis.jpg?raw=true)
+
+There is also a tab named "Active" which shows all the active jobs running. Based on this, you can stop the job and search for jobs using the unique identifier.
+
+![image](https://github.com/BatsalG/search-engine-app/blob/main/SearchFullStack/screenshots/Running-jobs.jpg?raw=true)
+
+Finally, there is a tab named "Search"
 
 ![image](https://user-images.githubusercontent.com/90344616/145472587-5f126ce0-c94e-4b17-b0e3-62dc49933d68.png)
 
