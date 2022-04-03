@@ -26,6 +26,24 @@ azure_id = ''
 azure_svname = ''
 ```
 
+#### For Twitter
+Go to `twitter_config.py` and add in the following parameters. This can be received from Twitter. Ensure that it is a Twitter V1 API, and not a V2 API. There is no way to search for popular tweets in V2 API, so until that functionality is added, V1 API is only supported.
+
+```sh
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_token_secret = ""
+```
+
+#### For IBM
+Go to `ibm_config.py` and add in the following parameters. This is received from the IBM Portal for Natural Language Understanding. It is also possible to use your own Machine Learning Model by cleaning and returning the JSON object fitting the requirements.
+
+```sh
+url_api = ''
+url_ibm = ''
+```
+
 ### For the Flask App:
 First, please ensure that 'pip' is installed in your machine.
 Open a Terminal, and move into the 'Flask API for app' folder. It is a good practice to create a virtual environment before installing the packages.
