@@ -11,6 +11,7 @@ app = Flask(__name__)
 api = Api(app)
 sch = BackgroundScheduler()
 
+# Python Restful APIs.
 class GetResults(Resource):
     def get(self, keyword, engine):
         print (keyword)
@@ -79,12 +80,17 @@ class GetKeywordIdentifier(Resource):
             201
         )
         
-
+# Fetch the results for the given engine.
 api.add_resource(GetResults, "/results/<string:keyword>/<string:engine>")
+# Fetch the sentiment for a given url.
 api.add_resource(GetSentiment, "/sentiment/<string:keyword>/<path:url>")
+# Insert the data to the database.
 api.add_resource(PostFetchReq, "/fetchdata/")
+# Add and remove jobs from the Database.
 api.add_resource(GetActiveSchedules, "/activeschedules/")
+# Search for running jobs.
 api.add_resource(GetSearchSchedules, "/searchschedules/<string:keyword>")
+# Insert the keywords into the database with the identifier.
 api.add_resource(GetKeywordIdentifier, "/kwpersist/")
 
 

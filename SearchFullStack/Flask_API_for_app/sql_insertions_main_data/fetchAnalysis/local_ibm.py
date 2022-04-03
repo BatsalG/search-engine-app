@@ -4,6 +4,8 @@ from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptio
 from newspaper import Article
 from sql_insertions_main_data.fetchAnalysis.ibm_config import url_api, url_ibm
 
+# Fetches the Machine Learning results.
+# Only used for the search feature in the Flask App.
 def get_text_from_url(url):
     article = Article(url)
     article.download()

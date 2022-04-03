@@ -11,6 +11,9 @@ import pyodbc
 from concurrent.futures import ThreadPoolExecutor
 
 def insert_data_to_sql(results, cursor, engine, db):
+    """
+        For the given engine, fetch the results and store it to the database.
+    """
     for res in results:
         date_ref = parser.parse(res['published_date'])
         url, kw = res['url'], res['keyword']
@@ -26,6 +29,9 @@ def insert_data_to_sql(results, cursor, engine, db):
         db.commit()
 
 def multithreading_fetch(a_kw, number_of_results, engine_name):
+    """
+        Create a separate connection for each result and start the insertion process.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id
@@ -52,6 +58,9 @@ def multithreading_fetch(a_kw, number_of_results, engine_name):
             db.commit()
 
 def fetch_from_engine(engine_name, keywords_from = 'from_sql', number_of_results = 10):
+    """
+        Fetches the keywords from the DB or takes in the custom keywords and stats the fetching process.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id
@@ -78,6 +87,9 @@ def fetch_from_engine(engine_name, keywords_from = 'from_sql', number_of_results
             executor.submit(multithreading_fetch, all_kws[i], number_of_results, engine_name)
             
 def add_job_schedule(list_kw, lint, nres, kwid):
+    """
+        Insert the data for each of the jobs into the database.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id
@@ -95,6 +107,10 @@ def add_job_schedule(list_kw, lint, nres, kwid):
             return id
         
 def get_active_schedules(kw_ident = ""):
+    """
+        Find the active jobs from the DB and return.
+        If a kw identifier is passed, search for it and return that instead.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id
@@ -122,6 +138,9 @@ def get_active_schedules(kw_ident = ""):
                 return active_conn
         
 def del_active_schedules(iid):
+    """
+        Helper to delete the job from the database once the destructor is called.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id
@@ -135,6 +154,9 @@ def del_active_schedules(iid):
             db.commit()
             
 def insert_keywords_to_db(list_kw, kw_iden):
+    """
+        From the React app, fetch the list of keywords and insert into the database.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id

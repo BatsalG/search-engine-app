@@ -9,6 +9,9 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
 def insert_ibm_twitter(text, url, kw, tweet_id, cursor):
+    """
+        Performs the analysis of the tweets and returns the formatted data.
+    """
     query_insertion = []
     res = ibm_get_sentiment_twitter(text)
 
@@ -58,6 +61,9 @@ def insert_ibm_twitter(text, url, kw, tweet_id, cursor):
     cursor.execute(query, query_insertion)    
 
 def insert_twitter_sql(results, cursor, db, kw):
+    """
+        Fetches the given number of results and inserts into the database.
+    """
     for result in results:
         tweet_id = str(result.id)
         created_at = result.created_at
@@ -78,6 +84,9 @@ def insert_twitter_sql(results, cursor, db, kw):
             db.commit()
 
 def get_twitter(kw, number_of_results):
+    """
+        Authentication for Twitter API and return single data.
+    """
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth, )
@@ -91,6 +100,10 @@ def get_twitter(kw, number_of_results):
     return res
 
 def twitter_multithreading(a_kw, number_of_results):
+    """"
+        Creates the database connection and starts the fetching process asynchronously.
+        Creates a separate connection for each of the results.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id
@@ -109,6 +122,9 @@ def twitter_multithreading(a_kw, number_of_results):
             db.commit()
 
 def fetch_from_twitter(keywords_from = 'from_sql', number_of_results = 10):
+    """
+        Main function used for insertion and fetching of data.
+    """
     server = azure_svname
     database = 'search_analysis'
     username = azure_id
@@ -129,7 +145,8 @@ def fetch_from_twitter(keywords_from = 'from_sql', number_of_results = 10):
                 all_kws = keywords_from
             else:
                 return "Not Found Any Keyword"
-        
+    
+    # Max workers can be changed to a reasonable number.
     with ThreadPoolExecutor(max_workers= 40) as executor:
         for i in tqdm(range(len(all_kws))):
             executor.submit(twitter_multithreading, all_kws[i], number_of_results)
