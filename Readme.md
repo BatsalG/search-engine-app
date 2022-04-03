@@ -1,7 +1,7 @@
 # Search Engine Bias
-## _Folder Breakdown_
-| Folder Name | README |
+## Folder Breakdown
+| Folder Name | Link |
 | ------ | ------ |
-| SearchAnalysis | [SearchAnalysis][PlDb] |
-| SearchFullStack | [SearchFullStack][PlGh] |
-| SearchData | [SearchData][PlGd] |
+| [SearchAnalysis](https://github.com/BatsalG/search-engine-app/tree/main/SearchAnalysis) | Main analysis notebooks for the data. |
+| [SearchFullStack](https://github.com/BatsalG/search-engine-app/tree/main/SearchFullStack) | Application Frontend and Backend |
+| [SearchData](https://github.com/BatsalG/search-engine-app/tree/main/SearchData) | Collected Data in SQL |
