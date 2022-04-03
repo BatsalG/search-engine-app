@@ -1,2 +1,0 @@
-from sql_insertions_main_data.Twitter_Fetch.get_twitter_data import fetch_from_twitter
-from sql_insertions_main_data.sql_insertion import fetch_from_engine
