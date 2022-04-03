@@ -1,5 +1,7 @@
 # Search Engine Bias
 
+Download the following report for the best experience with the working in-links.
+
 Report: ["The Internet: Analysis of the unobvious"](https://drive.google.com/file/d/1dbrE8Go7qLPdD0XH4vV8EFJqJrMbwPq8/view?usp=sharing)
 
 ## Folder Breakdown
