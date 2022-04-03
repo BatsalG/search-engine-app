@@ -5,6 +5,27 @@
 
 #### First and foremost, clone or download the entire repository. Then, perform the following steps to get the system up and running.
 
+### Set up configuration files
+There are three main APIs that you will need access to in order to run the application.
+
+Create three Python files in the below given locations. Please make sure that the filename matches the one provided.
+
+```sh
+sql_insertions_main_data/azure_config.py
+sql_insertions_main_data/Twitter_Fetch/twitter_config.py
+sql_insertions_main_data/fetchAnalysis/ibm_config.py
+```
+
+#### For Azure
+Go to `azure_config.py` and add in the following parameters. This can be obtained from your Azure Portal.
+You can also use any SQL Server Database hosted on the Cloud or locally.
+
+```sh
+azure_pwd = '{}'
+azure_id = ''
+azure_svname = ''
+```
+
 ### For the Flask App:
 First, please ensure that 'pip' is installed in your machine.
 Open a Terminal, and move into the 'Flask API for app' folder. It is a good practice to create a virtual environment before installing the packages.
@@ -75,4 +96,4 @@ As you hover over each of the article boxes, you can either look at its analysis
 
 ![image](https://user-images.githubusercontent.com/90344616/145473869-22c402f4-3d02-43cd-9d85-45c3941a1d54.png)
 
-To view further analysis of the search engines, visit [this](https://github.com/BatsalG/SearchAnalysis) repository.
+To view further analysis of the search engines, visit [this](https://github.com/BatsalG/search-engine-app/tree/main/SearchAnalysis/mainAnalysis) repository.
