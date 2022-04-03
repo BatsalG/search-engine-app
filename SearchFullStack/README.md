@@ -38,8 +38,11 @@ Once this step is complete, it shold automatically take you to the link of the R
 
 ### Note: Please ensure both the Flask backend and React frontend are running. Don't close the terminals. And, if the port number for Flask is different, you can change it in the 'package.json' file.
 
+> In case of any errors, ensure that Python version is 3.0+ and Node.js is installed on the stable version 16.14.2.
+
 ## Testing the App
-Once you go the Port:3000 of your local machine, you should see something like this.
+When you go to the `localhost:3000`, you should see the 'Fetch' Dashboard that looks something like this:
+
 
 ![image](https://user-images.githubusercontent.com/90344616/145472587-5f126ce0-c94e-4b17-b0e3-62dc49933d68.png)
 
