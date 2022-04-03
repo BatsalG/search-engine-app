@@ -42,7 +42,7 @@ Once this step is complete, it shold automatically take you to the link of the R
 
 ## Testing the App
 When you go to the `localhost:3000`, you should see the 'Fetch' Dashboard that looks something like this:
-
+![image](https://raw.githubusercontent.com/BatsalG/search-engine-app/main/SearchFullStack/screenshots/Fetch_Dashboard.jpg)
 
 ![image](https://user-images.githubusercontent.com/90344616/145472587-5f126ce0-c94e-4b17-b0e3-62dc49933d68.png)
 
